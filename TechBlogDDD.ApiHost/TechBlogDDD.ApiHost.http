@@ -1,0 +1,6 @@
+@TechBlogDDD.ApiHost_HostAddress = http://localhost:5173
+
+GET {{TechBlogDDD.ApiHost_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
