@@ -8,6 +8,6 @@ namespace TechBlogDDD.Domain.Shared.Constants
 {
     public static class Connection
     {
-        public const string ConnectionString = "Server=SQLTahsin; Database=TechBlogDb; Integrated Security= True; TrustServerCertificate=Yes";
+        public const string ConnectionString = "Server=SQLTahsin; Database=TechBlogDDD; Integrated Security= True; TrustServerCertificate=Yes MultipleActiveResultSets=true";
     }
 }
