@@ -82,34 +82,7 @@ namespace TechBlogDDD.Data
 
             }
         }
-        public async Task<GeneralResponse<List<Category>>> GetCategoryWithPosts(int id)
-        {
-            var data = new GeneralResponse<List<Category>>();
-            data.Value= new List<Category>();
-
-            if (!connection.Success)
-            {
-                data.Success = false;
-                data.ErrorMessage= connection.ErrorMessage;
-                return await Task.FromResult(data);
-            }
-            var parameters = new DynamicParameters();
-            parameters.Add("@PostId", id);
-            try
-            {
-                data.Value = connection?.db?.QueryAsync<Category>("GetCategoryWithPosts", parameters, commandType: CommandType.StoredProcedure).Result.ToList();
-                data.Success = true;
-                connection?.db?.Close();
-                return await Task.FromResult(data);
-            }        
-            catch(Exception ex)
-            {
-                data.Success = false;
-                data.ErrorMessage = ex.Message;
-                connection?.db?.Close();
-                return await Task.FromResult(data);
-            }
-        }
+      
 
         public Task<GeneralResponse<Category>> GetAsync(Category request)
         {

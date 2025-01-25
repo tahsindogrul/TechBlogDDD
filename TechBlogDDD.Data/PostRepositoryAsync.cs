@@ -163,7 +163,7 @@ namespace TechBlogDDD.Data
             return await Task.FromResult(data);
         }
 
-        public async Task<GeneralResponse<List<Post>>> GetPostsByCategoryAsync(int categoryId)
+        public async Task<GeneralResponse<List<Post>>> GetPostsByCategoryIdAsync(int categoryId)
         {
             var data = new GeneralResponse<List<Post>>();
             data.Value = new List<Post>();
@@ -181,7 +181,7 @@ namespace TechBlogDDD.Data
 
             try
             {
-                var posts = await connection.db.QueryAsync<Post>("GetPostsByCategory", parameters, commandType: CommandType.StoredProcedure);
+                var posts = await connection.db.QueryAsync<Post>("GetPostsByCategoryId", parameters, commandType: CommandType.StoredProcedure);
                 data.Value = posts.ToList();
                 data.Success = true;
             }

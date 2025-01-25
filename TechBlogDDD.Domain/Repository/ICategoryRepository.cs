@@ -11,6 +11,6 @@ namespace TechBlogDDD.Domain.Repository
 {
     public interface ICategoryRepository: IRepositoryAsync<Category>
     {
-        Task<GeneralResponse<List<Category>>> GetCategoryWithPosts(int id);
+       
     }
 }

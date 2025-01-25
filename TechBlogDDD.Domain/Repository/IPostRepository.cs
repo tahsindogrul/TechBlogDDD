@@ -11,10 +11,11 @@ namespace TechBlogDDD.Domain.Repository
 {
     public interface IPostRepository:IRepositoryAsync<Post>
     {
-        Task<GeneralResponse<List<Post>>> GetPostsByCategoryAsync(int categoryId);
+        Task<GeneralResponse<List<Post>>> GetPostsByCategoryIdAsync(int categoryId);
         Task<GeneralResponse<int>> GetTotalPostCountAsync();
 
         Task<GeneralResponse<Post>> GetPostDetails(int id);
+
 
 
     }
