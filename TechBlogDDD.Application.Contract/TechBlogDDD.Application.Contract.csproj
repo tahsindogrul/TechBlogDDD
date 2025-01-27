@@ -14,4 +14,8 @@
     <ProjectReference Include="..\TechBlogDDD.Core\TechBlogDDD.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Comment\Queries\" />
+  </ItemGroup>
+
 </Project>
