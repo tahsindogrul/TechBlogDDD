@@ -7,19 +7,22 @@ using System.Text;
 using System.Threading.Tasks;
 using TechBlogDDD.Core.Common;
 
-namespace TechBlogDDD.Application.Contract.User.Command
+namespace TechBlogDDD.Application.Contract.Register.Commands
 {
     [DataContract]
     public class CreateUserCommandRequest : IRequest<GeneralResponse<CreateUserCommandResponse>>
     {
         [DataMember]
-        public string FullName { get; set; }
+        public string? FullName { get; set; }
 
         [DataMember]
-        public string Password { get; set; }
+        public string? Password { get; set; }
 
         [DataMember]
-        public string Email { get; set; }
+        public string? Email { get; set; }
+
+        [DataMember]
+        public string? RePassword { get; set; }
 
 
 
