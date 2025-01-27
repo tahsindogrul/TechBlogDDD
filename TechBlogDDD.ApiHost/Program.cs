@@ -1,4 +1,4 @@
-using TechBlogDDD.Application.User;
+using TechBlogDDD.Application.Register;
 
 var builder = WebApplication.CreateBuilder(args);
 
