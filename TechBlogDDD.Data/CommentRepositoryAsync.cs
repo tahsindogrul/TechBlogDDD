@@ -95,33 +95,8 @@ namespace TechBlogDDD.Data
 
         public async Task<GeneralResponse<Comment>> GetAsync(Comment request)
         {
-            var data = new GeneralResponse<Comment>();
-            data.Value = new Comment();
-            if (!connection.Success)
-            {
-                data.Success = false;
-                data.ErrorMessage = connection.ErrorMessage;
-                return await Task.FromResult(data);
-            }
 
-            var parameters = new DynamicParameters();
-            parameters.Add("@CommentId", request.Id);
-            try
-            {
-                var comment = await connection?.db?.QueryAsync("GetCommentById", parameters, commandType: CommandType.StoredProcedure);
-                data.Value = comment.FirstOrDefault();
-                data.Success = true;
-                connection?.db?.Close();
-                return await Task.FromResult(data);
-            }
-            catch (Exception ex)
-            {
-                data.Success = false;
-                data.ErrorMessage = ex.Message;
-                connection?.db?.Close();
-                return await Task.FromResult(data);
-
-            }
+            throw new NotImplementedException();
         }
 
         public async Task<GeneralResponse<Comment>> UpdateAsync(Comment request)
