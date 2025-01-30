@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Comment\" />
     <Folder Include="Post\" />
     <Folder Include="User\" />
   </ItemGroup>
