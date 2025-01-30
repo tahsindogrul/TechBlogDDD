@@ -10,7 +10,8 @@ using TechBlogDDD.Core.Common;
 namespace TechBlogDDD.Application.Contract.Post.Queries
 {
     [DataContract]
-    public class GetPostQueryRequest:IRequest<GeneralResponse<GetPostDetailsByIdQueryResponse>>
+    public class GetPostQueryRequest:IRequest<GeneralResponse<GetPostQueryResponse>>
     {
+        public int PostId { get; set; }
     }
 }

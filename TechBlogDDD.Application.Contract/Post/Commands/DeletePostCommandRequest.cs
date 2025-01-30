@@ -13,7 +13,7 @@ namespace TechBlogDDD.Application.Contract.Post.Commands
     public class DeletePostCommandRequest:IRequest<GeneralResponse<DeletePostCommandResponse>>
     {
         [DataMember]
-        public string PostId { get; set; }
+        public int PostId { get; set; }
 
     }
 }
