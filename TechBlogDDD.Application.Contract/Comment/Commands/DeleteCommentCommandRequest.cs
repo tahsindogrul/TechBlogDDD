@@ -13,6 +13,6 @@ namespace TechBlogDDD.Application.Contract.Comment.Commands
     public class DeleteCommentCommandRequest: IRequest<GeneralResponse<DeleteCommentCommandResponse>>
     {
         [DataMember]
-        public string CommentId { get; set; }
+        public int CommentId { get; set; }
     }
 }
