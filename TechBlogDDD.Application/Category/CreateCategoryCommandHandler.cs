@@ -14,7 +14,7 @@ namespace TechBlogDDD.Application.Category
     {
         private readonly ICategoryRepository _categoryRepository;
 
-     
+
 
         public CreateCategoryCommandHandler(ICategoryRepository categoryRepository)
         {
@@ -32,11 +32,11 @@ namespace TechBlogDDD.Application.Category
                 IsActive = true
             });
 
-            if(!category.Success)
+            if (!category.Success)
             {
                 response.Success = category.Success;
                 response.ErrorMessage = category.ErrorMessage;
-                return await Task.FromResult(response); 
+                return await Task.FromResult(response);
             }
             response.Success = true;
             response.InfoMessage = "Success";
