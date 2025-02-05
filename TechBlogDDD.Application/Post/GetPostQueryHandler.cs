@@ -11,7 +11,7 @@ using TechBlogDDD.Domain.Repository;
 
 namespace TechBlogDDD.Application.Post
 {
-    public class GetPostQueryHandler : IRequestHandler<GetPostQueryRequest, GeneralResponse<GetPostQueryResponse>>
+    public class GetPostQueryHandler : IRequestHandler<GetPostQueryRequest, GeneralResponse<List<GetPostQueryResponse>>>
     {
         private readonly IPostRepository _postRepository;
         private readonly IMapper _mapper;
@@ -22,36 +22,25 @@ namespace TechBlogDDD.Application.Post
             _postRepository = postRepository;
         }
 
-        public async Task<GeneralResponse<GetPostQueryResponse>> Handle(GetPostQueryRequest request, CancellationToken cancellationToken)
+        public async Task<GeneralResponse<List<GetPostQueryResponse>>> Handle(GetPostQueryRequest request, CancellationToken cancellationToken)
         {
-            var response = new GeneralResponse<GetPostQueryResponse>();
-            response.Value = new GetPostQueryResponse();
+            var response = new GeneralResponse<List<GetPostQueryResponse>>();
+            response.Value = new List<GetPostQueryResponse>();
 
-            if (request.PostId != null) 
+            var post = await _postRepository.GetAllAsync();
+
+            if (!post.Success)
             {
-                var post = await _postRepository.GetAsync(new Domain.Entity.Post { Id = (int)request.PostId });
-
-                if (!post.Success)
-                {
-                    response.Success = post.Success;
-                    response.ErrorMessage = post.ErrorMessage;
-                    return await Task.FromResult(response);
-                }
-
-                if (post.Value == null)
-                {
-                    response.Success = false;
-                    response.ErrorMessage = "Post not found";
-                    return await Task.FromResult(response);
-                }
-
-                var item = _mapper.Map<GetPostQueryResponse>(post.Value);
-                response.Value = item;
-                response.Success = true;
-                response.InfoMessage = "Getting successfully";
+                response.Success = post.Success;
+                response.ErrorMessage = post.ErrorMessage;
+                return await Task.FromResult(response);
             }
+
+            response.Value = _mapper.Map<List<GetPostQueryResponse>>(post.Value);
+            response.Success = true;
+            response.InfoMessage = "Getting successfully";
             return await Task.FromResult(response);
-          
+
 
         }
     }
