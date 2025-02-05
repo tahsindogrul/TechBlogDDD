@@ -13,7 +13,7 @@ namespace TechBlogDDD.Application.Contract.Post.Queries
     public class GetPostDetailsByIdQueryRequest:IRequest<GeneralResponse<GetPostDetailsByIdQueryResponse>>
     {
         [DataMember]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
 
     }

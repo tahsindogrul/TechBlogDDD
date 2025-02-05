@@ -10,9 +10,9 @@ using TechBlogDDD.Core.Common;
 namespace TechBlogDDD.Application.Contract.Post.Queries
 {
     [DataContract]
-    public class GetPostsByCategoryIdQueryRequest:IRequest<GeneralResponse<GetPostsByCategoryIdQueryResponse>>
+    public class GetPostsByCategoryIdQueryRequest:IRequest<GeneralResponse<List<GetPostsByCategoryIdQueryResponse>>>
     {
         [DataMember]
-        public string CategoryId { get; set; }
+        public int CategoryId { get; set; }
     }
 }

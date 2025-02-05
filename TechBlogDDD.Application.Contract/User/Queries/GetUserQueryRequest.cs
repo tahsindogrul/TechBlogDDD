@@ -13,5 +13,6 @@ namespace TechBlogDDD.Application.Contract.User.Queries
 
     public class GetUserQueryRequest:IRequest<GeneralResponse<GetUserQueryResponse>>
     {
+        public int UserId { get; set; }
     }
 }
