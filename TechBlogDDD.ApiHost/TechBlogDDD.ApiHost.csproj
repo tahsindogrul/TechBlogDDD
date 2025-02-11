@@ -19,7 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TechBlogDDD.Application.Contract\TechBlogDDD.Application.Contract.csproj" />
     <ProjectReference Include="..\TechBlogDDD.Application\TechBlogDDD.Application.csproj" />
+    <ProjectReference Include="..\TechBlogDDD.Data\TechBlogDDD.Data.csproj" />
+    <ProjectReference Include="..\TechBlogDDD.Domain.Shared\TechBlogDDD.Domain.Shared.csproj" />
+    <ProjectReference Include="..\TechBlogDDD.Domain\TechBlogDDD.Domain.csproj" />
   </ItemGroup>
 
 </Project>

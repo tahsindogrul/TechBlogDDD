@@ -12,7 +12,7 @@ using TechBlogDDD.Domain.Repository;
 
 namespace TechBlogDDD.Data
 {
-    public class UserRoleRepository : TechBlogDbConnection, IUserRoleRepositoryAsync
+    public class UserRoleRepositoryAsync : TechBlogDbConnection, IUserRoleRepositoryAsync
     {
         public async Task<GeneralResponse<UserRole>> AddAsync(UserRole request)
         {

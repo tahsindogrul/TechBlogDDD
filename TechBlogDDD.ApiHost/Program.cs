@@ -1,4 +1,7 @@
+using TechBlogDDD.Application;
 using TechBlogDDD.Application.Register;
+using TechBlogDDD.Data;
+using TechBlogDDD.Domain.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,8 +21,20 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+
+builder.Services.AddAutoMapper(typeof(ApplicationAutoMapper));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateUserCommandHandler).Assembly));
 
+
+#region Dependency Injection
+
+builder.Services.AddScoped<ICategoryRepository,CategoryRepositoryAsync>();
+builder.Services.AddScoped<ICommentRepository, CommentRepositoryAsync>();
+builder.Services.AddScoped<IPostRepository, PostRepositoryAsync>();
+builder.Services.AddScoped<IRoleRepositoryAsync, RoleRepositoryAsync>();
+builder.Services.AddScoped<IUserRepository, UserRepositoryAsync>();
+builder.Services.AddScoped<IUserRoleRepositoryAsync, UserRoleRepositoryAsync>();
 
 app.UseHttpsRedirection();
 
