@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TechBlogDDD.Application.Contract\TechBlogDDD.Application.Contract.csproj" />
     <ProjectReference Include="..\TechBlogDDD.Application\TechBlogDDD.Application.csproj" />
     <ProjectReference Include="..\TechBlogDDD.Data\TechBlogDDD.Data.csproj" />

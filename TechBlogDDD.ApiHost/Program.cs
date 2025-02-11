@@ -36,6 +36,8 @@ builder.Services.AddScoped<IRoleRepositoryAsync, RoleRepositoryAsync>();
 builder.Services.AddScoped<IUserRepository, UserRepositoryAsync>();
 builder.Services.AddScoped<IUserRoleRepositoryAsync, UserRoleRepositoryAsync>();
 
+#endregion
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
