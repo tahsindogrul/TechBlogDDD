@@ -9,7 +9,7 @@ namespace TechBlogDDD.ApiHost.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PostController : Controller
+    public class PostController : ControllerBase
     {
         private readonly IMediator _mediator;
 
