@@ -12,9 +12,10 @@ namespace TechBlogDDD.ApiHost.Helpers
     {
         private readonly string _secretKey;
 
-        public JwtTokenFilterAttribute(string secretKey)
+        public JwtTokenFilterAttribute( )
         {
-            _secretKey = secretKey;
+           var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            _secretKey = configuration["Jwt:SecretKey"] ?? throw new Exception("JWT SecretKey not found!");
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
